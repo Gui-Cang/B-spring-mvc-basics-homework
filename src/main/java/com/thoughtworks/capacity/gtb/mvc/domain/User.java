@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 public class User {
     @NotNull (message = "用户名不为空")
     @Length(min = 3, max = 10)
-   // @Pattern(regexp = "a-zA-Z")
+    @Pattern(regexp = "\\w*", message = "只能由字母、数字或下划线组成")
     private String username;
     @NotNull(message = "密码不为空")
     @Length(min = 5, max = 12)
