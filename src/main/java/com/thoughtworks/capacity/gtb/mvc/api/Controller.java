@@ -31,6 +31,7 @@ public class Controller {
 //    }
 
     @GetMapping("/list")
+    @ResponseBody
     public List<User> getAllCounts() {
         return service.getAll();
     }
