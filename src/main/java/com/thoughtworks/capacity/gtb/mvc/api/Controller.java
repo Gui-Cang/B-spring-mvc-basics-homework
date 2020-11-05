@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,22 +13,22 @@ import java.util.List;
 public class Controller {
 
     private final Service service;
-    private List<User> userList2= initUsers();
-    private List<User> initUsers() {
-        List<User> users = new ArrayList<>();
-        users.add(new User("sdasd", "assdd", "add@sdf.com"));
-        return users;
-    }
+//    private List<User> userList2= initUsers();
+//    private List<User> initUsers() {
+//        List<User> users = new ArrayList<>();
+//        users.add(new User("sdasd", "assdd", "add@sdf.com"));
+//        return users;
+//    }
 
     public Controller(Service service) {
         this.service = service;
     }
 
-    @GetMapping("/list2")
-    public List<User> getAllCounts2() {
-      return userList2;
-        //  return service.getAll();
-    }
+//    @GetMapping("/list2")
+//    public List<User> getAllCounts2() {
+//      return userList2;
+//        //  return service.getAll();
+//    }
 
     @GetMapping("/list")
     public List<User> getAllCounts() {
@@ -39,7 +38,12 @@ public class Controller {
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestBody @Valid User user) {
-        service.creatUser(user);
+        service.createUser(user);
+    }
+
+    @GetMapping("/login?username=foo&password=bar")
+    public User singIn(User user) {
+      return user;
     }
 
 
