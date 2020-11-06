@@ -63,6 +63,9 @@ public class Service {
                 userSignIn = getByUsername(usernameWeb);
             }
         }
+        if (userSignIn.getUsername()==null) {
+            throw new UsernameExistedException("用户名或密码错误");
+        }
         return userSignIn;
     }
 }

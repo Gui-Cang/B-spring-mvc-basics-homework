@@ -32,9 +32,8 @@ public class Controller {
     }
 
     @GetMapping("/login")
-    public User singIn(@RequestParam(name = "usernameWeb") String usernameWeb, @RequestParam(name = "passwordWeb")String passwordWeb) {
-        return service.signIn(usernameWeb, passwordWeb);
+    public User singIn(@RequestParam String username, @RequestParam String password) {
+        return service.signIn(username, password);
     }
-
 
 }

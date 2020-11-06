@@ -13,7 +13,6 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    @JsonIgnore
     private Integer id;
     @NotNull(message = "用户名不为空")
     @Length(min = 3, max = 10)
