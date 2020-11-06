@@ -1,5 +1,6 @@
 package com.thoughtworks.capacity.gtb.mvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,9 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    @NotNull (message = "用户名不为空")
+    @JsonIgnore
+    private Integer id;
+    @NotNull(message = "用户名不为空")
     @Length(min = 3, max = 10)
     @Pattern(regexp = "\\w*", message = "只能由字母、数字或下划线组成")
     private String username;

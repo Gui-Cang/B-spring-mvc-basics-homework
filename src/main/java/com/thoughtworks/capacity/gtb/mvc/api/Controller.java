@@ -13,22 +13,11 @@ import java.util.List;
 public class Controller {
 
     private final Service service;
-//    private List<User> userList2= initUsers();
-//    private List<User> initUsers() {
-//        List<User> users = new ArrayList<>();
-//        users.add(new User("sdasd", "assdd", "add@sdf.com"));
-//        return users;
-//    }
+
 
     public Controller(Service service) {
         this.service = service;
     }
-
-//    @GetMapping("/list2")
-//    public List<User> getAllCounts2() {
-//      return userList2;
-//        //  return service.getAll();
-//    }
 
     @GetMapping("/list")
     @ResponseBody
@@ -42,9 +31,9 @@ public class Controller {
         service.createUser(user);
     }
 
-    @GetMapping("/login?username=foo&password=bar")
-    public User singIn(User user) {
-      return user;
+    @GetMapping("/login")
+    public User singIn(@RequestParam(name = "usernameWeb") String usernameWeb, @RequestParam(name = "passwordWeb")String passwordWeb) {
+        return service.signIn(usernameWeb, passwordWeb);
     }
 
 
