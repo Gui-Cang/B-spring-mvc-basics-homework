@@ -2,6 +2,8 @@ package com.thoughtworks.capacity.gtb.mvc.Service;
 
 import com.thoughtworks.capacity.gtb.mvc.Exception.UsernameExistedException;
 import com.thoughtworks.capacity.gtb.mvc.domain.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -63,7 +65,7 @@ public class Service {
                 userSignIn = getByUsername(usernameWeb);
             }
         }
-        if (userSignIn.getUsername()==null) {
+        if (userSignIn.getUsername() == null) {
             throw new UsernameExistedException("用户名或密码错误");
         }
         return userSignIn;

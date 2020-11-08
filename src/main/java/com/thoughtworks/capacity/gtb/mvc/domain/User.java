@@ -15,11 +15,11 @@ import javax.validation.constraints.*;
 public class User {
     private Integer id;
     @NotNull(message = "用户名不为空")
-    @Length(min = 3, max = 10)
-    @Pattern(regexp = "\\w*", message = "只能由字母、数字或下划线组成")
+    @Length(min = 3, max = 10, message = "用户名长度错误")
+    @Pattern(regexp = "\\w*", message = "用户名只能由字母、数字或下划线组成")
     private String username;
     @NotNull(message = "密码不为空")
-    @Length(min = 5, max = 12)
+    @Length(min = 5, max = 12, message = "密码长度错误")
     private String password;
     @Email
     private String email;
